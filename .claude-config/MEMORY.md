@@ -2,9 +2,11 @@
 
 ## Project State
 - Working dir: `/root/arc/mem2/`
+- Devlog repo: `/root/arc/mem_devlog/` (github: aaronzhfeng/mem_devlog)
 - Active benchmark: competition_math_all_l5 (200 eval, 500 build)
 - Current solver model: qwen3.5-flash-02-23 (via OpenRouter)
 - Extraction/selection model: qwen3.5-flash-02-23
+- API keys: in `/root/arc/mem2/.env` (gitignored); `.env.example` has placeholders
 
 ## Fast Iteration Experiment (2026-03-07) — devlog 29
 
@@ -123,7 +125,20 @@
 - `math_reason_eval.py`: `_BOXED_RE` regex fix (`\\?boxed`)
 - `extract_concepts.py`: `--include-ids`, `--include-ids-file`
 
+## Next Steps (devlog 31)
+1. **Hybrid + v3a on fruit fly** — combine hybrid retry mode with optimal selector configs
+2. **Scale to full eval** (200 math, 100 LCB) with domain-specific configs
+3. **Concept rejection pipeline** — per-concept attribution + automated filtering
+4. **Harder test set** — deferred, subsumed by full eval
+
+## Repo Structure
+- `mem_devlog/docs/` — devlogs 00-31 (moved from root)
+- `mem_devlog/.claude-config/` — portable CLAUDE.md, settings.json, MEMORY.md + setup.sh
+- `mem_devlog/literature_reference/` — arxiv papers as markdown (SkillRL etc.)
+- Devlog paths: `docs/09_current_state_2026_02_20.md` (onboarding), `docs/00_schema_alignment.tsv` (parity)
+
 ## User Preferences
 - Slack messages: plain text, no markdown
 - Prefers concise reports with tables
 - Wants arcmemo schema parity maintained
+- Commits under user identity (no Co-Authored-By)
