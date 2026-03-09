@@ -8,7 +8,7 @@ This repo contains two projects:
 
 - **`mem2/`** — Active codebase. A modular, domain-agnostic framework for memory-augmented LLM problem-solving. Clean-room re-implementation of `arc_memo` supporting multiple benchmarks.
 - **`arc_memo/`** — Original ArcMemo framework (reference only, not actively developed).
-- **`arcmemo_devlog/`** — Development logs. `09_current_state_2026_02_20.md` is the best onboarding document. `00_schema_alignment.tsv` tracks parity between mem2 and arcmemo — **read it before any pipeline change, update it after**.
+- **`mem_devlog/`** — Development logs. `docs/09_current_state_2026_02_20.md` is the best onboarding document. `docs/00_schema_alignment.tsv` tracks parity between mem2 and arcmemo — **read it before any pipeline change, update it after**.
 
 ## Common Commands
 
