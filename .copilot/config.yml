@@ -1,0 +1,16 @@
+mode: attach
+project_name: "mem2"
+created: "2026-03-18"
+copilot_path: "research-copilot"
+
+host_docs:
+  path: "docs"
+  naming: "numbered-prefix"
+  pattern: "NN_slug_YYYY_MM_DD.md"
+  next_number: 36
+  frontmatter: false
+
+host_repos:
+  codebase: "../mem2"
+  devlog: "."
+  reference: "../arc_memo"
