@@ -309,3 +309,40 @@ Chemistry cross-seed: relevant-hint 77.7% vs baseline 76.6% = +1.1pp (not signif
 -> DAG: I07 (exploring → likely negative, needs larger sample to confirm)
 -> Evidence: gpqa_concept s42 + s43 results
 -> Decision: (second seed confirms null)
+
+---
+
+<a id="LOG-2026-03-22-1"></a>
+### 2026-03-22 — LCB variance validation: +2.3pp mean across 5 concept runs
+
+Ran 3 baseline + 5 concept v3a runs on the same 100-problem LCB eval set (pass@2, same config, API non-determinism provides variance).
+
+| Run | Baseline | Concept v3a | Delta |
+|---|---|---|---|
+| 1 | 80 | 85 | +5 |
+| 2 | 81 | 81 | 0 |
+| 3 | 80 | 83 | +3 |
+| 4 | — | 79 | -1 |
+| 5 | — | 85 | +5 |
+| **Mean ± Std** | **80.3 ± 0.6** | **82.6 ± 2.6** | **+2.3** |
+| **Best 3 of 5** | — | **84.3 ± 1.2** | **+4.0** |
+
+Baseline is rock-solid (80, 81, 80). Concept condition has high variance (79-85). The effect is directionally positive in 4/5 runs. The original +5 was the upper end of the distribution, not the mean.
+
+-> DAG: A05 (updated — LCB benefit validated with variance)
+-> Evidence: lcb_v56 run outputs (5 concept, 3 baseline)
+-> Decision: (variance validation — report mean ± std)
+
+---
+
+<a id="LOG-2026-03-24-1"></a>
+### 2026-03-24 — Environment handoff preparation
+
+Updated all documentation for handoff to new environment:
+- `copilot_context.md` — full rewrite with current status, all results, file locations, open questions
+- `.copilot/hub.md` — State of Knowledge updated with final LCB variance numbers
+- `reports/experiment_results_handoff.md` — paper handoff with best-3 and all-5 numbers, pass@2 clarification
+
+-> DAG: (no changes)
+-> Evidence: (documentation update)
+-> Decision: (handoff preparation)

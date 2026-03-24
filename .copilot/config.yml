@@ -7,7 +7,7 @@ host_docs:
   path: "docs"
   naming: "numbered-prefix"
   pattern: "NN_slug_YYYY_MM_DD.md"
-  next_number: 36
+  next_number: 39
   frontmatter: false
 
 host_repos:

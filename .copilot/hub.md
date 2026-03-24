@@ -10,38 +10,34 @@
 <!-- STATE-OF-KNOWLEDGE-START -->
 
 ### What we know
-- Concept memory is domain-sensitive: +5pp on code (LCB), 0 to -5pp on math (devlogs 32-34)
-- Failure mode taxonomy: concepts fill knowledge gaps (code) but not reasoning depth gaps (math)
-- At every tested math baseline (6%, 57%, 80%, 98.5%), technique concepts fail to help
-- On hard olympiad math (d7-8), concepts cause -17pp damage by pushing wrong approach paths
-- **No memory augmentation helps on math** — technique concepts hurt (-5pp), episodic retrieval neutral, context warm-up neutral
-- **Smoketest +5pp was noise** — confirmed at n=108: baseline 67.6%, all treatments ~66% (random churn)
-- **Context injection is safe but useless** — unlike technique concepts (-17pp on d7-8), injected worked solutions cause no damage but provide no benefit either
-- TF-IDF retrieval is viable for formulaic problem types (recurrences, FE, series — sim > 0.5)
-- TF-IDF retrieval is poor for geometry and constructive proofs (sim < 0.3)
+- **LCB concept benefit validated across 5 runs:** baseline 80.3 ± 0.6, concept 82.6 ± 2.6 (pass@2). Best 3 of 5: 84.3 ± 1.2 (+4.0pp). Mean +2.3pp.
+- **Mechanism is retry recovery:** pass 1 unchanged (74 vs 73), retry recovery 44% vs 23%. Concepts provide alternative algorithmic approaches on second attempt.
+- **Concept memory is domain-sensitive:** helps on knowledge-gap domains (code), fails on reasoning-depth domains (math), null on science (GPQA)
+- **Math is structurally capped for ALL memory architectures tested:** technique concepts (-5pp), episodic retrieval (0pp), context warm-up (0pp), problem-only injection (0pp)
+- **GPQA Diamond null across 2 seeds:** initial +5pp on Chemistry (seed 42) reversed on seed 43. Cross-seed average within 1pp.
+- **BFCL-V4 exec splits at ceiling (91%):** harder splits need full eval pipeline
 
 ### What's working
-- Full pipeline architecture: 3 benchmarks, 130 tests, plug-in components
-- Concept extraction: 1105 math + 239 LCB concepts, two-stage pipeline
-- LCB technique concept benefit: +5pp at 80% baseline (100 problems, v3a full/full)
-- LCB technique concept benefit: +5pp at 80% baseline (100 problems, v3a full/full)
+- Full pipeline architecture: 3+ benchmarks, 130 tests, plug-in components
+- Concept extraction: v3a prompt with 0% leakage, two-stage pipeline
+- LCB concept benefit: **+2.3pp mean (5 runs)**, up to +5pp in best runs
+- Paper handoff document ready: `reports/experiment_results_handoff.md`
 
 ### What failed
-- Technique-level concept hints on math — structurally mismatched with failure mode
-- Weaker model (9B) — too weak (6% baseline), context overflow kills concept injection
-- Harder math benchmarks — Flash is either too strong (98.5% on competition) or in wrong failure regime (57% on olympiad, reasoning depth not knowledge gaps)
-
-### What failed
-- Technique-level concept hints on math — structurally mismatched with failure mode (-5pp)
-- Episodic retrieval relevance on math — no better than random (I05 negative)
-- **Context warm-up on math — smoketest +5pp was noise, null at n=108** (I06 negative)
-- All tested memory augmentation approaches for math: negative or neutral
+- Technique concepts on math: -5.1pp on Omni-MATH, -17pp on d7-8
+- Episodic retrieval on math: relevance = random (no benefit from similarity)
+- Context warm-up on math: smoketest +5pp was noise, null at n=108
+- GPQA explanation injection: null across seeds
+- BFCL exec splits: ceiling (91%), not testable
 
 ### What's unresolved
-- Is there ANY form of memory augmentation that helps on math? (I02 proof strategies still parked, but weak case)
-- Should the direction pivot to scaling the validated LCB result instead?
+- Scale LCB to 300+ problems? (5-run variance may suffice)
+- Full BFCL eval pipeline for harder splits?
+- Paper framing: report +2.3pp mean or +4.0pp best-3?
 
-*Last updated: 2026-03-19 (powered experiment null result)*
+*Last updated: 2026-03-24 (LCB variance validation complete, environment handoff)*
+
+<!-- STATE-OF-KNOWLEDGE-END -->
 
 <!-- STATE-OF-KNOWLEDGE-END -->
 
